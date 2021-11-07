@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sesinetd:
+    container_name: sesinetd
+    hostname: sesinetd
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: houdini:18.5
+    ports:
+      - 1715:1715

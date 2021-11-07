@@ -1,0 +1,51 @@
+There are two versions of Houdini Docker images:
+    One is on Windows system, and the other is on Ubuntu system.
+    Ubuntu version is recommended, because the image size is much smaller.
+
+
+Prerequisite:
+1. You should have Docker and Docker-compose installed if you're on Linux
+   host; You should have Docker Desktop installed if you're on Windows/Mac host.
+2. Since Houdini18.5, the installer argument `accept-EULA` requires an EULA
+   Last Updated Date to be passed in.
+   E.g. Current EULA was updated on 2020-05-05, so you should modify "UPDATE_ME"
+        in the Dockerfile to be "2020-05-05" if you would like to use H18.5+;
+        You should delete "UPDATE_ME" for H18.0 and previous versions.
+
+
+To set up anyone version of Houdini Docker image:
+1. Download the corresponding version Houdini from sidefx.com
+   E.g. If you'd prefer to use Linux version of Houdini Docker image, you should
+        download Linux version Houdini.
+2. Put the Houdini installer to "Ubuntu" or "Windows" folder accordingly.
+3. Check if the "UPDATE_ME" keyword in Dockerfile is modified correctly.
+4. Navigate to the folder and run command `docker-compose build`
+
+
+Some handy docker-compose commands:
+1. `docker-compose run -d -p 1715:1715 sesinetd` if you’d like to create your 
+   own sesinetd License Server
+2. `docker-compose run hython` to start up the interactive terminal with
+    hython container. 
+    For Linux version container, hython is in /opt/hfs[VERSION] folder;
+    For Windows version container, hython is in 
+        C:/Program Files/Side Effects Software/Houdini[VERSION] folder.
+3. `docker-compose build` to build/rebuild the Houdini Docker images.
+
+
+Some notes about Docker:
+1. Docker requires Windows image version to match host's OS version.
+   Current Windows Houdini image is based on windows:1903, you might
+   need to update that accordingly.
+2. Mac and Windows version Docker doesn't support "host" network, but host
+   is reachable on the special DNS name "host.docker.internal".
+   If you have a running "sesinetd" License Server on host and would like to
+   connect to it for license checkout, you could switch hserver's connected 
+   server to it.
+3. All platforms (Mac/Linux/Windows) support Linux version Houdini image.
+   Only Windows host supports Windows Houdini image. 
+4. Don't forget to toggle which daemon (Linux or Windows) the Docker CLI 
+   talks to if you are using Windows Docker Desktop. 
+   You could switch it from the Docker Desktop menu: 
+       "Switch to Windows containers to use Windows containers" and 
+       "Switch to Linux containers to use Linux containers"
