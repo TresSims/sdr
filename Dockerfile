@@ -13,4 +13,4 @@ COPY launch .
 
 COPY App.py .
 
-CMD "./launch"
+CMD ["bash", "-c", "./launch"]

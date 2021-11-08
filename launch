@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 /opt/hfs18.5/houdini/sbin/sesinetd
 /opt/hfs18.5/houdini/sbin/sesictrl login $SIDEFX_USER $SIDEFX_PW

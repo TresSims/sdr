@@ -8,5 +8,6 @@ import random
 with open('./keys', 'r') as f:
     line = reader.readLine()
     while line != '':
-        os.cmd(f"/opt/hfs18.5/houdini/sbin/sesictrl install {line}")
+        value = os.cmd(f"/opt/hfs18.5/houdini/sbin/sesictrl install {line}")
+        print(value)
         line = reader.readLine()
