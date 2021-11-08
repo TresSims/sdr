@@ -10,3 +10,6 @@ services:
     image: houdini:18.5
     ports:
       - 1715:1715
+    environment:
+      - SIDEFX_USER=${SIDEFX_USER}
+      - SIDEFX_PW=${SIDEFX_PW}

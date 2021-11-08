@@ -11,4 +11,6 @@ WORKDIR /sesinet
 
 COPY launch .
 
+COPY App.py .
+
 CMD "./launch"
