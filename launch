@@ -5,3 +5,4 @@
 
 ./App.py
 
+/opt/hfs18.5/houdini/sbin/sesinetd -D

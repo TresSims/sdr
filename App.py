@@ -10,5 +10,3 @@ with open('./keys', 'r') as f:
     while line != '':
         os.cmd(f"/opt/hfs18.5/houdini/sbin/sesictrl install {line}")
         line = reader.readLine()
-
-# Tail the log or something here idk
